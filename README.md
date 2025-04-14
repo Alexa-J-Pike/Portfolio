@@ -12,3 +12,6 @@
 
 ## Projects
 
+- Global Energy Consumption Trends: Analyzing China, India, and the US
+
+- Data Wrangling Tutorial: Nintendo
