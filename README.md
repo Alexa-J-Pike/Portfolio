@@ -1,4 +1,3 @@
-# Alexa Pike's Data Science Portfolio
 ### Pronouns: She/Her
 ---
 
