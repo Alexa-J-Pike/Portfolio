@@ -1,0 +1,142 @@
+---
+title:
+output: html_document
+---
+
+<center>
+
+# Global Energy Consumption Trends:
+
+# Are the Top Polluters Embracing Renewables?
+
+
+
+### Alexa Pike
+
+</center>
+
+```{r include=FALSE}
+library(tidyverse)
+library(janitor)
+library(ggthemes)
+library(knitr)
+```
+
+```{r include=FALSE}
+Primary_energy_consumption_EJ <- read_csv("Primary_energy_consumption_EJ.csv")
+Energy_consumption_by_fuel_EJ <- read_csv("Energy_consumption_by_fuel_EJ.csv")
+```
+# Introduction
+
+The purpose of this analysis is to determine if the world’s top 3 polluting countries, China, the US, and India, are replacing their non-renewable energy sources with renewable ones. I will be analyzing the “Global Energy Consumption” dataset package by user Golden Ave on Kaggle.com. Their package contains two data sets: Primary Energy Consumption and Energy Consumption by Fuel.\
+
+The former has three variables:
+
+- Country
+- Year
+- Total Energy Consumption (in exajoules)
+
+The latter has four variables:
+
+- Country
+- Year
+- Energy Consumption (in exajoules)
+- Fuel Type
+
+My first hypothesis is that all three countries will be increasing their total energy consumption. China, the US, and India are all very large countries and are either developed, or developing. As a result, they are all growing economically which can result in increased levels of energy consumption. My second hypothesis is that China and the US will both be increasing their usage of renewable energy and decreasing their usage of non-renewable energy, however, not at a sufficient replacement rate. I do not believe that India will follow this trend because it is considered a developing country.
+
+# Graph 1
+
+```{r echo=TRUE}
+Primary_energy_consumption_EJ |>
+  filter(Country %in% c("US", "China", "India")) |>
+  ggplot(
+    aes(x = Year, y = Total_Energy_Consumption_EJ)
+  ) +
+    geom_point(aes(color = Country)) +
+    scale_color_colorblind() +
+    labs(
+      x = "Year",
+      y = "Total Energy Consumption (Exajoules)",
+      title = "Total Energy Consumption Levels",
+      subtitle = "Data collected from the US, India, and China since 1965"
+    )
+```
+
+### Analysis: Graph 1
+
+I chose to represent the total energy consumption data with a scatter plot. On the x-axis, the year is displayed. On the y-axis, the total energy consumption, measured in exajoules, is displayed. Each country’s data is plotted with a corresponding color that has been identified as being most colorblind friendly.
+
+Graph 1 shows the total energy consumption of China, the US, and India since 1965. Both China and India have had increasing total energy consumption levels since the beginning of the data collection. However, a few years after 2000 China experienced a short period of exponential growth in total energy consumption, while India stayed fairly linear. Conversely, the US had increasing levels of total energy consumption up until 2000, since then levels have been fairly steady, if not slightly decreased. In 2023, China consumes the most energy at nearly 175 exajoules, followed by the US with a little less than 100 exajoules, then India with around 40 exajoules. 
+
+```{r include=FALSE}
+energy_consumption <- Energy_consumption_by_fuel_EJ |>
+  janitor::clean_names() |>
+  mutate(fuel_type = str_replace_all(fuel_type, " ", "_"))
+```
+
+```{r include=FALSE}
+fuel_labels <- c("Coal" = "Coal", "Natural_gas" = "Natural Gas", "Oil" = "Oil")
+```
+
+# Graph 2
+
+```{r echo=TRUE}
+energy_consumption |>
+  filter(
+    country %in% c("US", "China", "India"),
+    fuel_type %in% c("Coal", "Natural_gas", "Oil")) |>
+  ggplot(
+    aes(x = year, y = energy_consumption_ej, color = country)
+  ) +
+    geom_point() +
+    facet_wrap(~fuel_type, labeller = as_labeller(fuel_labels)) +
+    scale_color_colorblind() +
+    labs(
+      x = "Year",
+      y = "Fuel Consumption (Exajoules)",
+      title = "Non-renewable Energy Consumption Levels",
+      subtitle = "Data collected from the US, India, and China since 1965",
+      color = "Country"
+    )
+```
+
+### Analysis: Graph 2
+
+I chose to represent the non-renewable energies with faceted scatter plots. On the x-axis, the year is displayed. On the y-axis, the fuel consumption, in exajoules, is displayed. Each plot is separated by fuel type. The three most common non-renewable energies, coal, natural gas, and oil are displayed. The rationale for the graph's colors is the same as the last, with the additional cohesion between graphs as the data for each country uses the same color as it did previously.
+
+Graph 2 shows the consumption of coal, natural gas, and oil in China, the US, and India since 1965. China is shown to have increasing consumption levels of all three, with coal being used significantly more compared to the other fuel types and compared to the consumption in other countries. In stark contrast to China, the US has been consistently decreasing its consumption of coal since around 2010. However, the US uses much more natural gas than China, and only slightly more oil. Although, China’s oil consumption has been steadily increasing, while the US’ oil consumption has seemingly become stagnant. Like China, India has been increasing consumption levels of all three, but has lower natural gas and oil usage than both China and the US. India does however have higher coal consumption levels than the US.
+
+# Graph 3
+
+```{r echo=TRUE}
+energy_consumption |>
+  filter(
+    country %in% c("US", "China", "India"),
+    fuel_type %in% c("Solar", "Wind", "Hydropower")) |>
+  ggplot(
+    aes(x = year, y = energy_consumption_ej, color = country)
+  ) +
+    geom_point() +
+    facet_wrap(~fuel_type) +
+    scale_color_colorblind() +
+    labs(
+      x = "Year",
+      y = "Fuel Consumption (Exajoules)",
+      title = "Renewable Energy Consumption Levels",
+      subtitle = "Data collected from the US, India, and China since 1965",
+      color = "Country"
+    )
+```
+
+### Analysis: Graph 3
+
+Just like Graph 2, I chose to represent renewable energies with faceted scatter plots. On the x-axis, the year is displayed. On the y-axis, the fuel consumption, in exajoules, is displayed. The three most common renewable energies, hydropower, solar, and wind are displayed. The rationale for the graph’s colors is the same.
+
+Graph 3 shows the consumption of hydropower, solar, and wind energy in China, the US, and India since 1965. Both China and India have consistently had increasing consumption levels of all three energies. However, it's important to note that solar and wind energy are more recent discoveries, only truly being expanded upon around the early 2010’s and 2000’s respectively. The US’ hydropower energy consumption has been sporadically increasing and decreasing since 1965, and recently levels have returned to what they were in 1965. However, the US’ solar and wind energy consumption have been steadily increasing since their expansion. Overall, China has higher consumption levels of all three energies when compared to the US and India. India has lower consumption levels of all three energies when compared to China and the US.
+
+# Discussion & Conclusion
+
+My first hypothesis, that all three countries would have increasing total levels of energy consumption, was incorrect. While China and India are still steadily increasing their energy consumption, the US has not been significantly increasing or decreasing its energy consumption since the 2000s. This is likely due to the fact that the US has been increasing its renewable energy consumption while decreasing its non-renewable energy consumption, which leads into my next hypothesis. I hypothesized that both the US and China would be increasing their levels of renewable energy consumption while decreasing their non-renewable energy consumption. This is also incorrect. The US, for the most part, is in fact following this trend, but China is not. China has been increasing all of its energy consumption, both renewable and non-renewable. Unfortunately, however, its total non-renewable energy consumption is increasing more than its total renewable consumption. This is very worrisome for the environment, as China is the worlds top polluter. 
+
+This data analysis only begins to uncover the reality of global energy consumption, especially in regards to China, the US, and India, the world's top polluters. The next step in this research would be to perform some calculations on the data. A likely point of interest would be calculating past and current energy consumption rates and using them to create a predictive model. This model could potentially predict future energy consumption rates, and that data could possibly be used to calculate future environmental impacts.
