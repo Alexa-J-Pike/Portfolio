@@ -1,18 +1,25 @@
-# Alexa Pike's Data Science Portfolio
-
+# Alexa Pike
 ### Pronouns: She/Her
 ---
-
-## Education
-
 **Bachelor's in Environmental Science**\
 *Simmons University* - Expected Graduation: May 2027
 
-- Founder and President of the Award Winning Simmons Puzzle & Board Game Club: Are You Board?
-- Triple (Quadruple?) minor in Sustainability, Business, and Biostatistics (Data Science?)
+I'm passionate about the environment, though I am unsure about what I want to do professionally after college.
 
-## Projects
+I have a moderate understanding of R, including
 
-- Global Energy Consumption Trends: Analyzing China, India, and the US
+- Tidyverse
+- Linear regressions
 
-- Data Wrangling Tutorial: Nintendo
+I am using this Portfolio to showcase any and all R projects I have worked on during my college education.
+
+### Projects
+
+- [Energy Report](https://github.com/Alexa-J-Pike/MiniProject_1.git): Are the Top Polluting Countries Embracing Renewables?\
+This project analyzes the top three polluting countries, China, the US, and India, and
+seeks to determine if or at what rate they are replacing nonrenewable energies (oil, gas, etc.)
+with renewable ones (solar, wind, etc).
+
+- [Data Wrangling Tutorial](https://github.com/Alexa-J-Pike/MiniProject_2.git): What Game Will Nintendo Make Next?\
+This R tutorial walks beginner R users through DPLYR, the data transformation package
+contained in the Tidyverse. 
