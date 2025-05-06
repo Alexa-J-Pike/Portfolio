@@ -23,3 +23,8 @@ with renewable ones (solar, wind, etc).
 - [Data Wrangling Tutorial](https://github.com/Alexa-J-Pike/MiniProject_2.git): What Game Will Nintendo Make Next?\
 This R tutorial walks beginner R users through DPLYR, the data transformation package
 contained in the Tidyverse. 
+
+- [Student Habits Report](link): How Sleeping and Studying Affect Student Grades.\
+This project analyzes how sleep and study habits affect exam grades and develops a
+predictive model to help students estimate whether they will pass or fail based on
+their hours of sleep and study.
