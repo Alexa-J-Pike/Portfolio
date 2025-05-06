@@ -4,7 +4,7 @@
 **Bachelor's in Environmental Science**\
 *Simmons University* - Expected Graduation: May 2027
 
-I'm passionate about the environment, though I am unsure about what I want to do professionally after college.
+I’m very passionate about the environment and committed to making a positive impact. While I’m still exploring the specific path I want to take after college, I’m excited about the opportunities ahead and eager to find where I can contribute most meaningfully.
 
 I have a moderate understanding of R, including
 
@@ -15,10 +15,10 @@ I am using this Portfolio to showcase any and all R projects I have worked on du
 
 ### Projects
 
-- [Energy Report](https://github.com/Alexa-J-Pike/MiniProject_1.git): Are the Top Polluting Countries Embracing Renewables?\
+- [Energy Report](https://alexa-j-pike.github.io/MP1/Energy-Data-Report.html): Are the Top Polluting Countries Embracing Renewables?\
 This project analyzes the top three polluting countries, China, the US, and India, and seeks to determine if or at what rate they are replacing nonrenewable energies (oil, gas, etc.) with renewable ones (solar, wind, etc).
 
-- [Data Wrangling Tutorial](https://github.com/Alexa-J-Pike/MiniProject_2.git): What Game Will Nintendo Make Next?\
+- [Data Wrangling Tutorial](https://alexa-j-pike.github.io/MP2/Data-Wrangling-Tutorial.html): What Game Will Nintendo Make Next?\
 This R tutorial walks beginner R users through DPLYR, the data transformation package contained in the Tidyverse. 
 
 - [Student Habits Report](https://alexa-j-pike.github.io/FP/Student-Habits-Report.html): How Sleeping and Studying Affect Student Grades.\
