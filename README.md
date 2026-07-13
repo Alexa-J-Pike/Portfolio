@@ -1,5 +1,5 @@
 ---
-title: Introduction
+title: Alexa Pike
 ---
 ### Pronouns: She/Her
 ---
