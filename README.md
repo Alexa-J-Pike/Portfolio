@@ -1,6 +1,6 @@
 # Alexa Pike
 ### Pronouns: She/Her
-
+---
 **Bachelor's in Environmental Science**\
 *Simmons University* - Expected Graduation: May 2027
 
