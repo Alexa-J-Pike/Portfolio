@@ -1,7 +1,4 @@
----
-layout: page
-title: Alexa Pike
----
+# Alexa Pike
 
 **Bachelor's in Environmental Science**\
 *Simmons University* - Expected Graduation: May 2027
