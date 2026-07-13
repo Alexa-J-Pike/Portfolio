@@ -1,6 +1,4 @@
----
-title: Alexa Pike
----
+# Alexa Pike
 ### Pronouns: She/Her
 ---
 **Bachelor's in Environmental Science**\
